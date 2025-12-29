@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Event & Promo</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Nunito:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Main CSS -->
+  <link href="assets/css/main.css" rel="stylesheet">
+</head>
+
+<style>
+/* Font Keseluruhan */
+body {
+    margin: 0;
+    font-family: 'Nunito', sans-serif;
+    background-color: #F7F4DD;
+    color: #2f3e2e;
+    line-height: 1.7;
+}
+
+h1, h2, h3 {
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 0.5px;
+    margin: 0;
+}
+
+p {
+    font-size: 16px;
+}
+
+/* Warna */
+:root {
+    --cream: #F7F4DD;
+    --mint: #DDFFBC;
+    --green-soft: #91C788;
+    --green-dark: #52734D;
+}
+
+/* Section Promo */
+.promo-section {
+    padding: 100px 6% 60px;
+    background-color: #F7F4DD;
+}
+
+.promo-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 60px;
+}
+
+.promo-header h2 {
+    font-size: 38px;
+    color: #52734D;
+    margin-bottom: 14px;
+}
+
+.promo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 28px;
+}
+
+.promo-card {
+    background-color: #DDFFBC;
+    border-radius: 20px;
+    padding: 26px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.promo-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 36px rgba(0,0,0,0.08);
+}
+
+.promo-label {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #52734D;
+    color: #fff;
+    font-size: 12px;
+    padding: 6px 14px;
+    border-radius: 18px;
+    font-weight: 600;
+}
+
+.promo-title {
+    font-size: 20px;
+    color: #52734D;
+    margin-bottom: 10px;
+}
+
+.promo-desc {
+    margin-bottom: 16px;
+}
+
+.promo-benefit span {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
+/* Section Event */
+.event-section {
+    padding: 100px 6%;
+    background-color: #91C788;
+}
+
+.event-header {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    max-width: 850px;
+    margin: 0 auto 70px;
+    color: #2f3e2e;
+}
+
+.event-header h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 40px;
+    margin-bottom: 16px;
+}
+
+.event-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: #FEFFDE;
+    border-radius: 26px;
+    padding: 50px;
+}
+
+.event-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 26px;
+    color: #52734D;
+    margin-bottom: 12px;
+}
+
+.event-desc {
+    margin-bottom: 22px;
+}
+
+.event-prevention {
+    margin-bottom: 30px;
+}
+
+.event-prevention li {
+    margin-bottom: 8px;
+}
+
+/* Event Grid 3 Kolom */
+.event-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+@media (max-width: 992px) {
+    .event-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .event-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.event-card {
+    background-color: #FEFFDE;
+    border-radius: 22px;
+    padding: 32px;
+    transition: all 0.3s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 36px rgba(0,0,0,0.08);
+}
+
+.event-card h3 {
+    font-size: 22px;
+    color: #52734D;
+    margin-bottom: 12px;
+}
+
+.event-card ul {
+    padding-left: 18px;
+    margin-bottom: 20px;
+}
+
+.event-card li {
+    margin-bottom: 6px;
+}
+
+.event-poster {
+    width: 100%;
+    aspect-ratio: 1 / 1;        
+    border-radius: 18px;
+    border: 2px dashed #91C788;
+    overflow: hidden;
+    background-color: #FEFFDE;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.event-poster img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Animasi Navbar */
+.header {
+  transition:
+    transform 0.4s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+.header.scrolled .topbar .contact-info {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+}
+.header.scrolled {
+  background: #ffffff;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+/* Navbar */
+.site-title,
+.navbar-brand,
+.navbar-left {
+  display: flex;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: #3F4A3C;
+}
+
+/* Font Judul Promo */
+.promo-header h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 38px;
+  font-weight: 700;
+  color: #3F4A3C;
+  letter-spacing: 0.5px;
+}
+
+/* Posisi Logo di Topbar */
+.topbar {
+  background-color: #3F4A3C; 
+}
+
+/* Logo Kiri */
+.topbar-logo {
+  display: flex;
+  align-items: center;
+}
+
+.topbar-logo img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Posisi Topbar */
+.topbar .container {
+  max-width: 1320px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+/* Ukuran Font di Navbar */
+.navbar-brand {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 18px !important; 
+  line-height: 1 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: #3F4A3C !important;
+}
+.topbar .contact-info,
+.topbar .contact-info span,
+.topbar .contact-info i {
+  color: #ffffff !important;
+}
+  main {
+    padding-top: 140px; 
+  }
+
+/* Sembunyikan Nomor Telepon */
+@media (max-width: 740px) {
+  .topbar .contact-info span {
+    display: none !important;
+  }
+}
+@media (max-width: 768px) {
+  .topbar .container {
+    padding-left: 16px;   
+    padding-right: 10px;  
+  }
+}
+/* Tombol Back to Top */
+.back-to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 44px;
+  height: 44px;
+  background: #8FA97A;
+  color: #2f3e34;
+  border-radius: 50%;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.18);
+}
+
+.back-to-top i {
+  font-size: 26px;
+  line-height: 1;
+}
+
+.back-to-top:hover {
+  background: #2f3e2e;
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+/* Tampil Saat Aktif */
+.back-to-top.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Posisi Tombol Back to Top agar Tidak Menutupi Konten di Tampilan Mobile */
+@media (max-width: 768px) {
+  .back-to-top {
+    right: 16px;
+    bottom: 16px;
+  }
+}
+
+</style>
+<body>
+
+    <!-- Back to Top -->
+<a href="#" id="backToTop" class="back-to-top d-flex align-items-center justify-content-center">
+  <i class="bi bi-arrow-up-short"></i>
+</a>
+
+<header id="header" class="header fixed-top">
+
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="container d-flex  align-items-center justify-content-between">
+
+      <!-- Logo -->
+      <div class="topbar-logo d-flex align-items-center">
+        <img src="assets/img/health/LOGO KLINIK.png" alt="Logo Klinik">
+      </div>
+
+      <!-- Telepon -->
+      <div class="contact-info phone-mobile d-flex align-items-center">
+        <a href="tel:082150400080" class="phone-link d-flex align-items-center">
+          <i class="bi bi-phone"></i>
+          <span>082150400080</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <div class="branding">
+    <div class="container d-flex align-items-center justify-content-between">
+      <!-- Nama Klinik di Pojok Kiri -->
+      <span class="navbar-brand me-auto">Klinik Semen PPS</span>
+
+      <!-- Menu di Pojok Kanan -->
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html" >About Us</a></li>
+          <li><a href="biaya copy.html/htm page.html">Administration</a></li>
+          <li><a href="DOCTOR ADMINISTRASSION/profil dokter/profildokter.html">Doctor's Schedule</a></li>
+          <li><a href="Berita/berita.html">Articles</a></li>
+          <li><a href="Promo and Event.html" class="active">Event and Promo</a></li>
+          <li><a href="contact person copy/contact.html">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+    </div>
+  </div>
+
+</header>
+<main class="main">
+
+<section class="promo-section">
+
+    <div class="promo-header">
+        <h2>Promo Layanan Klinik</h2>
+        <p>Program promo layanan kesehatan dengan harga dan fasilitas khusus untuk masyarakat</p>
+    </div>
+
+    <div class="promo-grid">
+
+        <!-- Promo 1 -->
+        <div class="promo-card">
+            <div class="promo-label">20%</div>
+            <h3 class="promo-title">Scaling gigi</h3>
+            <p class="promo-desc">Periode 1 Februari-28 Februari 2025. Syarat dan ketentuan berlaku.</p>
+            <div class="promo-benefit">
+                <span>✔ Berlaku untuk pasien umum pembayaran tunai</span>
+                <span>✔ Pemeriksaan dilakukan oleh Dokter Gigi Umum</span>
+                <span>✔ Berlaku di semua Klinik Semen Gresik</span>
+            </div>
+        </div>
+
+        <!-- Promo 2 -->
+        <div class="promo-card">
+            <div class="promo-label">10%</div>
+            <h3 class="promo-title">Jumat Berkah</h3>
+            <p class="promo-desc">Diskon laboratorium periode 15 Maret-30 Desember 2025 setiap Jumat. Syarat dan ketentuan berlaku.</p>
+            <div class="promo-benefit">
+                <span>✔ Berlaku untuk pasien umum pembayaran tunai</span>
+                <span>✔ Hanya untuk item tertentu</span>
+                <span>✔ Promo ini tidak dapat digabungkan dengan promo lainnya</span>
+            </div>
+        </div>
+
+        <!-- Promo 3 -->
+        <div class="promo-card">
+            <div class="promo-label">30%</div>
+            <h3 class="promo-title">Surat Sehat</h3> 
+            <p class="promo-desc">Diskon medical check up periode 9 April-30 Juni 2024. Layanan tersebut mencakup:</p>
+            <div class="promo-benefit">
+                <span>✔ Pemeriksaan dokter</span>
+                <span>✔ Golongan darah</span>
+                <span>✔ Narkoba 3 parameter</span>
+            </div>
+        </div>
+
+        <!-- Promo 4 -->
+        <div class="promo-card">
+            <div class="promo-label">25%</div>
+            <h3 class="promo-title">Dokter Umum</h3>
+            <p class="promo-desc">Layanan pemeriksaan kesehatan dengan Dokter Umum. Syarat dan ketentuan berlaku.</p>
+            <div class="promo-benefit">
+                <span>✔ Berlaku untuk pasien umum pembayaran tunai</span>
+                <span>✔ Berlaku untuk item tertentu</span>
+                <span>✔ Promo ini tidak dapat digabungkan dengan promo lainnya</span>
+            </div>
+        </div>
+
+        <!-- Promo 5 -->
+        <div class="promo-card">
+            <div class="promo-label">20%</div>
+            <h3 class="promo-title">Dokter Spesialis</h3>
+            <p class="promo-desc">Layanan pemeriksaan kesehatan dengan Dokter Spesialis. Syarat dan ketentuan berlaku.</p>
+            <div class="promo-benefit">
+                <span>✔ Berlaku untuk pasien umum pembayaran tunai</span>
+                <span>✔ Berlaku untuk item tertentu</span>
+                <span>✔ Promo ini tidak dapat digabungkan dengan promo lainnya</span>
+                <span>✔ Promo ini berlaku untuk spesialis jantung, penyakit dalam dan saraf</span>
+            </div>
+        </div>
+
+        <!-- Promo 6 -->
+        <div class="promo-card">
+            <div class="promo-label">25%</div>
+            <h3 class="promo-title">Tropical Fluoride</h3>
+            <p class="promo-desc">Periode 26 Desember-31 Januari 2025. Syarat dan ketentuan berlaku.</p>
+            <div class="promo-benefit">
+                <span>✔ Berlaku untuk pasien umum pembayaran tunai</span>
+                <span>✔ Pemeriksaan dilakukan oleh Dokter Gigi Umum</span>
+                <span>✔ Berlaku di semua Klinik Semen Gresik</span>
+            </div>
+        </div>
+
+        <!-- Promo 7 -->
+        <div class="promo-card">
+            <div class="promo-label">20+25%</div>
+            <h3 class="promo-title">Paket Sehat 1</h3>
+            <p class="promo-desc">Periode 1 Februari-28 Februari 2025. Layanan tersebut mencakup:</p>
+            <div class="promo-benefit">
+                <span>✔ Pemeriksaan fisik</span>
+                <span>✔ Asam urat</span>
+                <span>✔ Gula darah puasa</span>
+                <span>✔ Gula darah 2 JPP</span>
+                <span>✔ Kolestrol LDL dan HDL</span>
+                <span>✔ Trigliserida</span>
+            </div>
+        </div>
+
+        <!-- Promo 8 -->
+        <div class="promo-card">
+            <div class="promo-label">20+25%</div>
+            <h3 class="promo-title">Paket Sehat 2</h3>
+            <p class="promo-desc">Periode 1 Februari-28 Februari 2025. Layanan tersebut mencakup:</p>
+            <div class="promo-benefit">
+                <span>✔ Pemeriksaan fisik</span>
+                <span>✔ Kreatinin</span>
+                <span>✔ Gula darah puasa</span>
+                <span>✔ HBA1C</span>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="event-section">
+
+    <div class="event-header">
+        <h2>Event Edukasi Kesehatan</h2>
+        <p>Peringatan hari kesehatan sebagai bentuk edukasi dan kepedulian terhadap masyarakat</p>
+    </div>
+
+    <div class="event-grid">
+
+        <!-- Event 1 -->
+        <div class="event-card">
+            <h3>Hari PPOK Sedunia</h3>
+            <p>PPOK adalah penyakit paru-paru jangka panjang yang menyebabkan saluran napas menyempit, sehingga penderitanya sulit bernapas. Penyakit ini biasanya berkembang perlahan dan sering dialami oleh perokok. Cara mencegah PPOK:</p>
+            <ul>
+                <li>Berhenti merokok dan hindari rokok</li>
+                <li>Kurangi paparan polusi udara dengan menggunakan masker</li>
+                <li>Rutin olahraga ringan untuk menjaga fungsi paru</li>
+            </ul>
+           <div class="event-poster">
+            <img src="assets/img/health/POSTER 1.jpeg" alt="Poster PPOK">
+          </div>
+      </div>    
+        <!-- Event 2 -->
+        <div class="event-card">
+            <h3>Hari AIDS Sedunia</h3>
+            <p>AIDS (Acquired Immune Deficiency Syndrome) adalah tahap lanjut dari infeksi HIV yang menyebabkan sistem kekebalan tubuh sangat lemah, sehingga penderita mudah terkena berbagai penyakit infeksi serius.</p>
+            <ul>
+                <li>Setia pada satu pasangan dan menggunakan kondom saat berhubungan seksual</li>
+                <li>Tidak berbagi jarum sentik pada penggunaan narkoba atau alat medis yang tidak steril</li>
+                <li>Tes HIV secara rutin</li>
+            </ul>
+            <div class="event-poster">
+            <img src="assets/img/health/POSTER 2.jpeg" alt="Poster PPOK">
+          </div>
+      </div>    
+
+        <!-- Event 3 -->
+        <div class="event-card">
+            <h3>Hari Diabetes Sedunia</h3>
+            <p>Diabetes adalah penyakit kronis yang terjadi ketika kadar gula darah terlalu tinggi karena tubuh tidak cukup memproduksi insulin atau tidak dapat menggunakan insulin dengan efektif.</p>
+            <ul>
+                <li>Kurangi gula berlebih, makanan cepat saji dan minuman manis</li>
+                <li>Rutin berolahraga minimal 30 menit sehari</li>
+                <li>Menjaga berat badan agar tetap ideal</li>
+            </ul>
+            <div class="event-poster">
+            <img src="assets/img/health/POSTER 3.jpeg" alt="Poster PPOK">
+          </div>
+      </div>    
+
+        <!-- Event 4 -->
+        <div class="event-card">
+            <h3>Hari Stroke Sedunia</h3>
+            <p>Stroke adalah penyakit yang terjadi ketika aliran darah ke otak terganggu atau terhenti, sehingga sel-sel otak kekurangan oksigen dan nutrisi.</p>
+            <ul>
+                <li>Mengonsumsi makanan bergizi seimbang, rendah lemak dan garam</li>
+                <li>Rutin memeriksa penyakit-penyakit yang berisiko memicu stroke</li>
+                <li>Mengurangi stress</li>
+            </ul>
+            <div class="event-poster">
+            <img src="assets/img/health/POSTER 4.jpeg" alt="Poster PPOK">
+          </div>
+      </div> 
+
+        <!-- Event 5 -->
+        <div class="event-card">
+            <h3>Hari Meningitis Sedunia</h3>
+            <p>Meningitis adalah penyakit peradangan pada selaput otak dan sumsum tulang belakang yang biasanya disebabkan oleh infeksi virus, bakteri, atau jamur.</p>
+            <ul>
+                <li>Memperoleh vaksinasi lengkap</li>
+                <li>Rutin cuci tangan, tidak berbagi alat makan dan menjaga kebersihan</li>
+                <li>Mengonsumsi makanan bergizi dan istirahat yang cukup untuk menjaga daya tahan tubuh</li>
+            </ul>
+            <div class="event-poster">
+            <img src="assets/img/health/POSTER 5.jpeg" alt="Poster PPOK">
+          </div>
+      </div> 
+
+        <!-- Event 6 -->
+        <div class="event-card">
+            <h3>Hari Osteoporosis Sedunia</h3>
+            <p>Osteoporosis adalah penyakit tulang yang menyebabkan tulang menjadi keropos, rapuh, dan mudah patah karena kepadatan tulang menurun.</p>
+            <ul>
+                <li>Mengonsumsi sumber makanan yang kaya akan vitamin D dan berjemur di pagi hari</li>
+                <li>Rutin olahraga terutama olahraga beban</li>
+                <li>Hindari rokok dan alkohol</li>
+            </ul>
+            <div class="event-poster">
+            <img src="assets/img/health/POSTER 6.jpeg" alt="Poster PPOK">
+          </div>
+    </div>
+</section>
+</main>
+
+<!-- Footer -->
+<footer class="footer text-center">
+  <div class="container">
+    <p> -Klinik Semen PPS-</p>
+  </div>
+</footer>
+
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+const header = document.querySelector('#header');
+const mobileToggle = document.querySelector('.mobile-nav-toggle');
+const navMenu = document.querySelector('#navmenu ul');
+
+// Mobile Menu
+if (mobileToggle) {
+  mobileToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('show');
+  });
+}
+
+const backToTop = document.querySelector('#backToTop');
+
+// Scroll Effect
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 60) {
+    header.classList.add('scrolled');
+    backToTop.classList.add('active');
+  } else {
+    header.classList.remove('scrolled');
+    backToTop.classList.remove('active');
+  }
+});
+
+// Tombol Back to Top
+backToTop.addEventListener('click', (e) => {
+  e.preventDefault();
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
+</script>
+
+</body>
+</html>
