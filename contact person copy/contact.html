@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Person | Klinik</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Nunito:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap & Icons -->
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Main CSS -->
+  <link href="../assets/css/main.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --clinic-bg: #F6F4E8;
+      --clinic-soft: #F7F4DD;
+      --clinic-primary: #8FA97A;
+      --clinic-dark: #3F4A3C;
+      --clinic-border: #6F8F6A;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--clinic-bg);
+      color: var(--clinic-dark);
+    }
+
+    h1, h2, h3 {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .navbar-left {
+      display: flex;
+      align-items: center;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 18px;
+      color: var(--clinic-dark);
+    }
+
+    /* buat kartu kontak */
+    .content .card {
+      background: var(--clinic-soft);
+      border-radius: 16px;
+      padding: 30px;
+      max-width: 700px;
+      margin: 120px auto 60px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .contact-info p {
+      margin-bottom: 15px;
+    }
+
+    .contact-info a {
+      color: var(--clinic-primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .contact-info a:hover {
+      color: #6f8f6a;
+    }
+
+@media (max-width: 768px) {
+  .topbar .contact-info span {
+    display: none !important;
+  }
+}
+@media (max-width: 768px) {
+  .topbar .container {
+    padding-left: 16px;   /* kiri */
+    padding-right: 10px;  /* kanan */
+  }
+}
+
+.header {
+  transition: all 0.3s ease;
+  z-index: 9999;
+}
+
+/*topbar*/
+.header .topbar {
+  transition: all 0.3s ease;
+}
+
+/*navbar*/
+.header .branding {
+  transition: all 0.3s ease;
+}
+
+/*animasi scroll*/
+.header.scrolled {
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.01);
+}
+
+.header.scrolled .topbar {
+  height: 42px;
+}
+/*mobile*/
+@media (max-width: 768px) {
+  .header.scrolled .topbar {
+    height: 38px;
+  }
+}
+  </style>
+<style>
+  /*card improved */
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 160px 24px 80px;
+}
+
+/* Card utama */
+.content .card {
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border-radius: 24px;
+  padding: 38px 42px;
+
+  max-width: 720px;
+  width: 100%;
+
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.18),
+    0 12px 24px rgba(0, 0, 0, 0.10);
+
+  transform: translateY(0);
+  animation: cardPop 0.6s ease;
+}
+
+/*pop-up */
+@keyframes cardPop {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/*jarak untuk mobile display*/
+
+@media (max-width: 768px) {
+
+  .content {
+    padding: 130px 16px 60px;
+  }
+
+  .content .card {
+    padding: 26px 22px;
+    border-radius: 18px;
+  }
+}
+
+@media (max-width: 576px) {
+
+  .content {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .content .card {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+/* icon info list */
+
+.icon-list p {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.icon-list i {
+  font-size: 20px;
+  color: var(--clinic-primary);
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+.icon-list span {
+  display: block;
+}
+
+.icon-list strong {
+  font-weight: 600;
+  color: var(--clinic-dark);
+}
+
+/* link */
+.icon-list a {
+  color: var(--clinic-primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.icon-list a:hover {
+  color: #6f8f6a;
+}
+
+/*mobile adjustment*/
+@media (max-width: 576px) {
+  .icon-list i {
+    font-size: 18px;
+  }
+
+  .icon-list p {
+    gap: 12px;
+  }
+}
+
+</style>
+
+</head>
+<body>
+
+<!-- header -->
+<header id="header" class="header fixed-top">
+
+  <!--topbar-->
+  <div class="topbar d-flex align-items-center dark-background">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <div class="topbar-logo d-flex align-items-center">
+        <img src="../assets/img/health/LOGO KLINIK.png" alt="Clinic Logo">
+      </div>
+
+      <div class="contact-info d-flex align-items-center">
+        <a href="tel:082150400080" class="phone-link d-flex align-items-center">
+          <i class="bi bi-phone d-flex align-items-center"></i>
+          <span>082150400080</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!--navbar-->
+  <div class="branding">
+    <div class="container d-flex align-items-center justify-content-end">
+
+      <div class="navbar-left me-auto">
+        <span class="navbar-brand">Klinik Semen PPS</span>
+      </div>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="../index.html">About Us</a></li>
+          <li><a href="../biaya copy.html/htm page.html">Administration</a></li>
+          <li><a href="../DOCTOR ADMINISTRASSION/profil dokter/profildokter.html">Doctor's Schedule</a></li>
+          <li><a href="../Berita/berita.html">Articles</a></li>
+          <li><a href="../Promo and Event.html">Event and Promo</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+    </div>
+  </div>
+
+</header>
+
+<!--main content start-->
+<section class="content" style="
+  background-image: url('../assets/img/health/rumah_sakit_bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding: 120px 0 60px;
+">
+  <div class="card" style="background: rgba(255, 255, 255, 0.9);">
+<h2>Hubungi Kami</h2>
+    <p class="desc">Silakan hubungi kami untuk informasi lebih lanjut mengenai layanan klinik.</p>
+    <div class="contact-info icon-list">
+  <p>
+    <i class="bi bi-geo-alt-fill"></i>
+    <span>
+      <strong>Alamat Klinik</strong><br>
+      Jl. Permata Boulevard Blok BV Kav 6-8, PPS, Gresik
+    </span>
+  </p>
+
+  <p>
+    <i class="bi bi-clock-fill"></i>
+    <span>
+      <strong>Jam Operasional</strong><br>
+      Senin - Jumat: 08.00 - 16.00<br>
+      Sabtu: 08.00 - 12.00
+    </span>
+  </p>
+
+  <p>
+    <i class="bi bi-whatsapp"></i>
+    <span>
+      <strong>Telepon / WhatsApp</strong><br>
+      <a href="https://wa.me/6282150400080" target="_blank">
+        0821 5040 0080 (Chat WhatsApp)
+      </a>
+    </span>
+  </p>
+
+  <p>
+    <i class="bi bi-instagram"></i>
+    <span>
+      <strong>Instagram</strong><br>
+      <a href="https://instagram.com/klinikutamasemengresikpps" target="_blank">
+        @klinikutamasemengresikpps
+      </a>
+    </span>
+  </p>
+
+</div>
+
+</section>
+<!--footer-->
+<footer class="footer text-center">
+  <div class="container">
+    <p> -Klinik Semen PPS-</p>
+  </div>
+</footer>
+
+<script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/main.js"></script>
+
+<script>
+  const header = document.querySelector('#header');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 80) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
+</script>
+
+
+</body>
+</html>

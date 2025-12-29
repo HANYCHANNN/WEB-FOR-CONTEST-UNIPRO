@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Tailwind CSS -->
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+  <!-- Google Fonts Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <title>Berita Terkini Mengenai Kesehatan</title>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Administration - Klinik</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Nunito:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap & Icons -->
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Main CSS -->
+  <link href="../assets/css/main.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --clinic-bg: #F6F4E8;
+      --clinic-soft: #F7F4DD;
+      --clinic-primary: #8FA97A;
+      --clinic-dark: #3F4A3C;
+      --clinic-border: #6F8F6A;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--clinic-bg);
+      color: var(--clinic-dark);
+    }
+
+    h1, h2, h3 {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* ===== HERO ===== */
+    .admin-hero {
+      padding: 120px 0 80px;
+      text-align: center;
+    }
+
+    .admin-hero img.logo {
+      width: 120px;
+      margin-bottom: 20px;
+    }
+
+    .admin-hero h1 {
+      margin-bottom: 10px;
+    }
+    /* Navbar kiri atas brand */
+.navbar-left {
+  display: flex;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--clinic-dark);
+}
+main {
+  padding-top: -100px; 
+}
+
+    /* ===== CARD ===== */
+    .admin-card {
+      background: var(--clinic-soft);
+      border: 3px solid var(--clinic-border);
+      border-radius: 20px;
+      padding: 30px;
+      transition: transform .4s ease, opacity .4s ease;
+      opacity: 0;
+      transform: translateY(40px);
+    }
+
+    .admin-card.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .admin-card img {
+      border-radius: 16px;
+      margin-bottom: 20px;
+    }
+
+body {
+  background: #F7F4DD !important;
+}
+
+.main {
+  background: transparent !important;
+}
+
+.container,
+.container-fluid {
+  background: transparent !important;
+}
+
+/* section berita */
+.hero,
+.hero-offset,
+section {
+  background: transparent !important;
+}
+
+/* grid area */
+.grid {
+  background: transparent !important;
+}
+   @media (max-width: 768px) {
+  .topbar .contact-info span {
+    display: none !important;
+  }
+}
+@media (max-width: 768px) {
+  .topbar .container {
+    padding-left: 16px;   /* kiri */
+    padding-right: 10px;  /* kanan */
+  }
+}
+  </style>
+</head>
+
+<body>
+
+ <!-- Back to Top -->
+<a href="#" id="backToTop" class="back-to-top d-flex align-items-center justify-content-center">
+  <i class="bi bi-arrow-up-short"></i>
+</a>
+<!-- ===== HEADER ===== -->
+<header id="header" class="header fixed-top">
+
+  <!-- TOPBAR -->
+  <div class="topbar d-flex align-items-center dark-background">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <div class="topbar-logo d-flex align-items-center">
+        <img src="../assets/img/health/LOGO KLINIK.png" alt="Clinic Logo">
+      </div>
+
+      <div class="contact-info d-flex align-items-center">
+        <a href="tel:082150400080" class="phone-link d-flex align-items-center">
+          <i class="bi bi-phone d-flex align-items-center"></i>   
+          <span>082150400080</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <div class="branding">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <!-- BRAND LEFT -->
+      <div class="navbar-left me-auto">
+        <span class="navbar-brand">Klinik Semen PPS</span>
+      </div>
+          
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="../index.html">About Us</a></li>
+          <li><a href="../biaya copy.html/htm page.html" >Administration</a></li>
+          <li><a href="../DOCTOR ADMINISTRASSION/profil dokter/profildokter.html">Doctor's Schedule</a></li>
+          <li><a href="../Berita/berita.html" class="active">Articles</a></li>
+          <li><a href="../Promo and Event.html">Event and Promo</a></li>
+          <li><a href="../contact person copy/contact.html">Contact</a></li>
+        </ul>
+      </nav>
+  <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+    </div>
+  </div>
+
+</header>
+
+<!-- ===== CSS NAVBAR ===== -->
+<style>
+.header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  background: rgba(255,255,255,0);
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.header.scrolled {
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 991px) {
+  .mobile-nav-toggle {
+    display: block;
+  }
+
+  .navmenu {
+    position: fixed;
+    inset: 0;
+    background: rgba(255,255,255,0.97);
+    display: none;
+    z-index: 9999;
+  }
+
+  .navmenu.show {
+    display: flex;
+  }
+
+  .navmenu ul {
+    margin: auto;
+    flex-direction: column;
+    gap: 28px;
+    text-align: center;
+  }
+
+  .navmenu ul li a {
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  body.mobile-nav-active {
+    overflow: hidden;
+  }
+}
+.navmenu ul li a {
+  color: var(--clinic-dark);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.news-card {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.news-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 0;
+}
+
+.news-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.news-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+  color: #fff;
+}
+
+/* ===== VARIASI WARNA ===== */
+.hover-green::before {
+  background: linear-gradient(135deg, #6f8f6a, #3f4a3c);
+}
+
+.hover-olive::before {
+  background: linear-gradient(135deg, #89986d, #556b4e);
+}
+
+.hover-sage::before {
+  background: linear-gradient(135deg, #9cab84, #5f7056);
+}
+
+.hover-forest::before {
+  background: linear-gradient(135deg, #4f6f52, #2f3e34);
+}
+
+.hover-moss::before {
+  background: linear-gradient(135deg, #7a8f5a, #4b5e3a);
+}
+
+.news-card:hover::before {
+  opacity: 1;
+}
+
+.news-card:hover a {
+  color: #fff !important;
+}
+/* ===============================
+   BACK TO TOP BUTTON
+   =============================== */
+.back-to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 44px;
+  height: 44px;
+  background: #8FA97A;
+  color: #2f3e34;
+  border-radius: 50%;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.18);
+}
+
+.back-to-top i {
+  font-size: 26px;
+  line-height: 1;
+}
+
+.back-to-top:hover {
+  background: #3F4A3C;
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+/* tampil saat aktif */
+.back-to-top.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* mobile biar ga nutup konten */
+@media (max-width: 768px) {
+  .back-to-top {
+    right: 16px;
+    bottom: 16px;
+  }
+}
+</style>
+
+
+
+<!-- ===== JS NAVBAR ===== -->
+<script>
+const mobileToggle = document.querySelector('.mobile-nav-toggle');
+const navMenu = document.querySelector('#navmenu');
+const backToTop = document.querySelector('#backToTop');
+
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+mobileToggle.addEventListener('click', () => {
+  navMenu.classList.toggle('show');
+
+  mobileToggle.classList.toggle('bi-list');
+});
+
+// Scroll Effect
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 60) {
+    header.classList.add('scrolled');
+    backToTop.classList.add('active');
+  } else {
+    header.classList.remove('scrolled');
+    backToTop.classList.remove('active');
+  }
+});
+
+// Back to top click
+backToTop.addEventListener('click', (e) => {
+  e.preventDefault();
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
+</script>
+
+
+
+<main class="main">
+  <section class="pt-24 pb-24">
+    <section class="hero hero-offset">
+
+    <div class="container mx-auto px-5">
+
+      <!-- JUDUL -->
+      <div class="text-center mb-12">
+        <h1 class="text-4xl font-semibold text-gray-700">Berita Terkini tentang Kesehatan</h1>
+      </div>
+      <!-- GRID CARD -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+
+        <!-- CARD 1 -->
+        <div class="news-card hover-green border-2 border-gray-200 rounded-lg bg-white flex flex-col">
+
+          <img class="h-40 w-full object-cover" src="https://solotrust.com/data/foto-berita/66089-ilustrasi-mi-instan.jpg">
+          <div class="p-4 flex flex-col flex-1 justify-between">
+            <div>
+              <h2 class="text-sm mb-1 font-medium">Des 24, 2025</h2>
+              <h1 class="text-lg font-semibold mb-2">Ini Risiko Penyakit Jika Sering Konsumsi Mi Instan</h1>
+              <p class="text-sm mb-3 truncate-multiline font-normal">
+                Mi instan menjadi salah satu makanan yang gemar dikonsumsi masyarakat Indonesia...
+              </p>
+            </div>
+            <a href="https://www.solotrust.com/berita/ini-risiko-penyakit-jika-sering-konsumsi-mi-instan"
+              class="inline-flex items-center text-[#3F4A3C] font-medium transform transition duration-200 hover:translate-x-1 hover:text-white active:scale-95">
+              Baca Selengkapnya
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="news-card hover-green border-2 border-gray-200 rounded-lg bg-white flex flex-col">
+          <img class="h-40 w-full object-cover" src="https://www.bangsaonline.com/images/uploads/berita/700/392480293cf58e4335367936142b920a.jpg">
+          <div class="p-4 flex flex-col flex-1 justify-between">
+            <div>
+              <h2 class="text-sm mb-1 font-medium">Des 24, 2025</h2>
+              <h1 class="text-lg font-semibold mb-2">BPJS Kesehatan Gresik: Peserta JKN Bisa Akses IGD Tanpa Rujukan saat Gawat Darurat di Luar Domisili</h1>
+              <p class="text-sm mb-3 truncate-multiline font-normal">
+                Peserta program JKN atau Jaminan Kesehatan Nasional yang mengalami kondisi gawat darurat...
+              </p>
+            </div>
+            <a href="https://www.bangsaonline.com/berita/156847/bpjs-kesehatan-gresik-peserta-jkn-bisa-akses-igd-tanpa-rujukan-saat-gawat-darurat-di-luar-domisili"
+              class="inline-flex items-center text-[#3F4A3C] font-medium transform transition duration-200 hover:translate-x-1 hover:text-white active:scale-95">
+              Baca Selengkapnya
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        </div>
+        
+
+        <!-- CARD 3 -->
+        <div class="news-card hover-green border-2 border-gray-200 rounded-lg bg-white flex flex-col">
+          <img class="h-40 w-full object-cover" src="https://jatimnow.com/po-content/uploads/202512/seminar-kesehatan.jpg">
+          <div class="p-4 flex flex-col flex-1 justify-between">
+            <div>
+              <h2 class="text-sm mb-1 font-medium">Des 9, 2025</h2>
+              <h1 class="text-lg font-semibold mb-2">Dinas Kesehatan Gresik Mantapkan Langkah Percepatan Eliminasi TBC 2028</h1>
+              <p class="text-sm mb-3 truncate-multiline font-normal">
+                Dinas Kesehatan Kabupaten Gresik terus memantapkan langkah percepatan eliminasi Tuberculosis (TBC) melalui...
+              </p>
+            </div>
+            <a href="https://jatimnow.com/baca-81051-dinas-kesehatan-gresik-mantapkan-langkah-percepatan-eliminasi-tbc-2028"
+              class="inline-flex items-center text-[#3F4A3C] font-medium transform transition duration-200 hover:translate-x-1 hover:text-white active:scale-95">
+              Baca Selengkapnya
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        </div>
+        
+
+        <!-- CARD 4 -->
+        <div class="news-card hover-green border-2 border-gray-200 rounded-lg bg-white flex flex-col">
+          <img class="h-40 w-full object-cover" src="https://radarjatim.id/wp-content/uploads/2025/12/lantas.jpg">
+          <div class="p-4 flex flex-col flex-1 justify-between">
+            <div>
+              <h2 class="text-sm mb-1 font-medium">Des 23, 2025</h2>
+              <h1 class="text-lg font-semibold mb-2">Pastikan Keselamatan Nataru, Polres Gresik Gelar Tes Urine Driver Angkutan Umum</h1>
+              <p class="text-sm mb-3 truncate-multiline font-normal">
+                Polres Gresik menggelar operasi gabungan berupa rampcheck angkutan umum serta...
+              </p>
+            </div>
+            <a href="https://radarjatim.id/pastikan-keselamatan-nataru-polres-gresik-gelar-tes-urine-driver-angkutan-umum/"
+              class="inline-flex items-center text-[#3F4A3C] font-medium transform transition duration-200 hover:translate-x-1 hover:text-white active:scale-95">
+              Baca Selengkapnya
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- CARD 5 -->
+        <div class="news-card hover-green border-2 border-gray-200 rounded-lg bg-white flex flex-col">
+          <img class="h-40 w-full object-cover" src="https://img.antaranews.com/cache/800x533/2025/12/23/sahat_1.jpg.webp">
+          <div class="p-4 flex flex-col flex-1 justify-between">
+            <div>
+              <h2 class="text-sm mb-1 font-medium">Des 23, 2025</h2>
+              <h1 class="text-lg font-semibold mb-2">Barantin perkuat pengawasan jelang Nataru cegah penularan penyakit</h1>
+              <p class="text-sm mb-3 truncate-multiline font-normal">
+                Badan Karantina Indonesia (Barantin) melakukan penguatan koordinasi lintas sektor menjelang...
+              </p>
+            </div>
+            <a href="https://www.antaranews.com/berita/5318344/barantin-perkuat-pengawasan-jelang-nataru-cegah-penularan-penyakit"
+              class="inline-flex items-center text-[#3F4A3C] font-medium transform transition duration-200 hover:translate-x-1 hover:text-white active:scale-95">
+              Baca Selengkapnya
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      
+  
+
+    <!-- CARD 6 -->
+<div class="news-card hover-green border-2 border-gray-200 rounded-lg bg-white flex flex-col">
+  <img class="h-40 w-full object-cover" src="https://bumame.com/api/file?name=files/2024/12/11/pdp-lp-vaksinhpv-thumbnailjpg-1733098147041.webp&w=1080&q=70">
+  <div class="p-4 flex flex-col flex-1 justify-between">
+    <div>
+      <h2 class="text-sm mb-1 font-medium">Des 26, 2025</h2>
+      <h1 class="text-lg font-semibold mb-2">Pentingnya Vaksinasi Dewasa dalam Melindungi Karyawan dan Lingkungan Kerja</h1>
+      <p class="text-sm mb-3 truncate-multiline font-normal">
+        Vaksinasi tidak hanya penting bagi anak-anak, tetapi juga bagi orang dewasa untuk menjaga daya tahan tubuh...
+      </p>
+    </div>
+    <a href="https://bumame.com/news/vaksinasi-dewasa-cegah-penyakit-menular-di-lingkungan-kerja"
+      class="inline-flex items-center text-[#3F4A3C] font-medium transform transition duration-200 hover:translate-x-1 hover:text-white active:scale-95">
+      Baca Selengkapnya
+      <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7" />
+      </svg>
+    </a>
+  </div>
+</div>
+<!-- CARD 7 -->
+<div class="news-card hover-green border-2 border-gray-200 rounded-lg bg-white flex flex-col">
+  <img class="h-40 w-full object-cover" src="https://static.promediateknologi.id/crop/0x0:0x0/0x0/webp/photo/p2/83/2024/11/03/HIV-AIDS-2136182876.jpg">
+  <div class="p-4 flex flex-col flex-1 justify-between">
+    <div>
+      <h2 class="text-sm mb-1 font-medium">Nov 3, 2025</h2>
+      <h1 class="text-lg font-semibold mb-2">Kasus HIV/AIDS di Gresik Meroket, Anak-anak, Usia Muda dan Lansia Jadi Sasaran Baru</h1>
+      <p class="text-sm mb-3 truncate-multiline font-normal">
+        Peningkatan kasus HIV/AIDS di Kabupaten Gresik dalam tiga tahun terakhir menjadi sorotan serius...
+      </p>
+    </div>
+    <a href="https://radargresik.jawapos.com/sport/835269421/kasus-hivaids-di-gresik-meroket-anak-anak-usia-muda-dan-lansia-jadi-sasaran-baru"
+      class="inline-flex items-center text-[#3F4A3C] font-medium transform transition duration-200 hover:translate-x-1 hover:text-white active:scale-95">
+      Baca Selengkapnya
+      <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7" />
+      </svg>
+    </a>
+  </div>
+</div>  
+<!-- CARD 8 -->
+<div class="news-card hover-green border-2 border-gray-200 rounded-lg bg-white flex flex-col">
+  <img class="h-40 w-full object-cover" src="https://dinkes.gresikkab.go.id//storage/photos/3/AYO_KENALI_PENYALAHGUNAAN_BAHAN_KIMIA_BERBAHAYA_PADA_PANGAN_20250728_141553.png">
+  <div class="p-4 flex flex-col flex-1 justify-between">
+    <div>
+      <h2 class="text-sm mb-1 font-medium">Agustus 26, 2025</h2>
+      <h1 class="text-lg font-semibold mb-2">Ayo Kenali Penyalahgunaan Bahan Kimia Berbahaya Pada Pangan</h1>
+      <p class="text-sm mb-3 truncate-multiline font-normal">
+      ‼️ Waspadai makanan yang mengandung bahan kimia berbahaya...</p>
+    </div>
+    <a href="https://dinkes.gresikkab.go.id/detail-post/bahan-kimia"
+      class="inline-flex items-center text-[#3F4A3C] font-medium transform transition duration-200 hover:translate-x-1 hover:text-white active:scale-95">
+      Baca Selengkapnya
+      <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7" />
+      </svg>
+    </a>
+  </div>
+
+</div>
+  </section>
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer text-center">
+  <div class="container">
+    <p>-Klinik Semen PPS-</p>
+  </div>
+</footer>
+
+<!-- ===== JS ===== -->
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+
+  function smoothReveal() {
+    reveals.forEach(el => {
+      const windowHeight = window.innerHeight;
+      const elementTop = el.getBoundingClientRect().top;
+      const revealPoint = 120;
+
+      if (elementTop < windowHeight - revealPoint) {
+        el.classList.add('show');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', smoothReveal);
+  window.addEventListener('load', smoothReveal);
+</script>
+
+
+<script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/main.js"></script>
+
+
+</body>
+</html> 

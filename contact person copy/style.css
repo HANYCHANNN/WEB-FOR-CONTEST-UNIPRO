@@ -1,0 +1,158 @@
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+
+
+
+/* CONTENT */
+.content {
+  background: #F6F4E8;
+  padding: 60px;
+  min-height: 100vh;
+}
+
+.card {
+  background: #CFE3AE;
+  padding: 40px;
+  border-radius: 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.card h2 {
+  color: #3F4A3C;
+}
+
+.desc {
+  margin-bottom: 30px;
+  color: #4A5A46;
+}
+
+/* CONTACT */
+.contact-wrapper {
+  display: flex;
+  gap: 40px;
+}
+
+.contact-info {
+  width: 40%;
+  background: #F7F4DD;
+  padding: 20px;
+  border-radius: 16px;
+}
+
+.contact-info button {
+  margin-top: 10px;
+  padding: 8px 12px;
+  background: #8FA97A;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.contact-form {
+  width: 60%;
+}
+
+.contact-form label {
+  display: block;
+  margin-top: 10px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 8px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  margin-top: 4px;
+}
+
+.contact-form button {
+  margin-top: 15px;
+  width: 100%;
+  padding: 10px;
+  background: #8FA97A;
+  border: none;
+  color: white;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+#notif {
+  margin-top: 10px;
+  color: #3F4A3C;
+}
+
+h1, h2, h3 {
+  font-weight: 600;
+}
+
+p, label {
+  font-weight: 400;
+}
+
+/* NAVBAR */
+.navbar {
+  background-color: #CFE3AE; /* hijau muda HTM */
+  padding: 20px 0;
+}
+
+.nav-container {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 600;
+  color: #3F4A3C;
+}
+
+.nav-menu a {
+  margin-left: 30px;
+  text-decoration: none;
+  color: #3F4A3C;
+  font-weight: 500;
+  position: relative;
+}
+
+/* HOVER */
+.nav-menu a:hover {
+  color: #6B8E5A;
+}
+
+/* ACTIVE PAGE */
+.nav-menu a.active::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #6B8E5A;
+  border-radius: 5px;
+}
+/* BRAND */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-img {
+  width: 100px;
+  height: auto;
+}
+
+.logo-text {
+  font-size: 22px;
+  font-weight: 600;
+  color: #3F4A3C;
+}
+

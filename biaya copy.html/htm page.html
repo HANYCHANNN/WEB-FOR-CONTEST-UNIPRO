@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Administration - Klinik</title>
+
+  <!--Fonts-->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Nunito:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!--Bootstrap & Icons-->
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+
+  <!--Main CSS-->
+  <link href="../assets/css/main.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --clinic-bg: #F6F4E8;
+      --clinic-soft: #F7F4DD;
+      --clinic-primary: #8FA97A;
+      --clinic-dark: #3F4A3C;
+      --clinic-border: #6F8F6A;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--clinic-bg);
+      color: var(--clinic-dark);
+    }
+
+    h1, h2, h3 {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /*hero css*/
+    .admin-hero {
+      padding: 120px 0 80px;
+      text-align: center;
+    }
+
+    .admin-hero img.logo {
+      width: 120px;
+      margin-bottom: 20px;
+    }
+
+    .admin-hero h1 {
+      margin-bottom: 10px;
+    }
+    /*navbar kiri atas css*/
+.navbar-left {
+  display: flex;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--clinic-dark);
+}
+
+    
+    /*tabel biaya css*/
+.biaya-table {
+  background: var(--clinic-soft);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.biaya-table thead {
+  background: var(--clinic-primary);
+  color: white;
+}
+
+.biaya-table th,
+.biaya-table td {
+  padding: 14px;
+  text-align: center;
+  border: 1px solid #cdd9b8;
+}
+
+.biaya-table tbody tr:hover {
+  background: #e7efd4;
+  transition: 0.3s;
+}
+
+/*download button css*/
+.btn-download {
+  display: inline-block;
+  background: var(--clinic-primary);
+  color: white;
+  padding: 14px 26px;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.4s ease;
+}
+
+.btn-download:hover {
+  background: #6f8f6a;
+  transform: translateY(-3px);
+}
+/*hide no telp*/
+@media (max-width: 768px) {
+  .topbar .contact-info span {
+    display: none !important;
+  }
+}
+/*card floating*/
+.admin-card {
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 32px;
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.08),
+    0 4px 10px rgba(0, 0, 0, 0.04);
+  transition: 
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+/* hover pop-up */
+.admin-card:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.12),
+    0 8px 20px rgba(0, 0, 0, 0.06);
+}
+.admin-card::before {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: var(--clinic-primary);
+  border-radius: 10px;
+  margin-bottom: 16px;
+}
+@media (max-width: 768px) {
+  .admin-card {
+    padding: 24px;
+    border-radius: 18px;
+  }
+
+  .admin-card:hover {
+    transform: none;
+  }
+}
+
+
+    .admin-card img {
+      border-radius: 16px;
+      margin-bottom: 20px;
+    }
+
+/*admin card kiri yg baru*/
+.admin-card img {
+  width: 100%;
+  height: 220px;           
+  object-fit: cover;       
+  border-radius: 16px;
+}
+/*back to top button*/
+.back-to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 44px;
+  height: 44px;
+  background: #8FA97A;
+  color: #2f3e34;
+  border-radius: 50%;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.18);
+}
+
+.back-to-top i {
+  font-size: 26px;
+  line-height: 1;
+}
+
+.back-to-top:hover {
+  background: #3F4A3C;
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+/* tampil saat aktif */
+.back-to-top.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* mobile biar ga nutup konten */
+@media (max-width: 768px) {
+  .back-to-top {
+    right: 16px;
+    bottom: 16px;
+  }
+}
+  </style>
+</head>
+
+<body>
+<!--header-->
+<header id="header" class="header fixed-top">
+
+  <!--topbar-->
+  <div class="topbar d-flex align-items-center dark-background">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <div class="topbar-logo d-flex align-items-center">
+        <img src="../assets/img/health/LOGO KLINIK.png" alt="Clinic Logo">
+      </div>
+
+      <div class="contact-info d-flex align-items-center">
+        <a href="tel:082150400080" class="phone-link d-flex align-items-center">
+          <i class="bi bi-phone d-flex align-items-center"></i>
+          <span>082150400080</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!--navbar-->
+  <div class="branding">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <!--judul navbar di kiri-->
+      <div class="navbar-left me-auto">
+        <span class="navbar-brand">Klinik Semen PPS</span>
+      </div>
+          
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="../index.html">About Us</a></li>
+          <li><a href="htm page.html" class="active">Administration</a></li>
+          <li><a href="../DOCTOR ADMINISTRASSION/profil dokter/profildokter.html">Doctor's Schedule</a></li>
+          <li><a href="../Berita/berita.html">Articles</a></li>
+          <li><a href="../Promo and Event.html">Event and Promo</a></li>
+          <li><a href="../contact person copy/contact.html">Contact</a></li>
+        </ul>
+      </nav>
+  <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+    </div>
+  </div>
+
+</header>
+
+<!-- Back to Top -->
+<a href="#" id="backToTop" class="back-to-top d-flex align-items-center justify-content-center">
+  <i class="bi bi-arrow-up-short"></i>
+</a>
+
+<!--css navbar-->
+<style>
+.header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  background: rgba(255,255,255,0);
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.header.scrolled {
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+
+
+@media (max-width: 991px) {
+  .mobile-nav-toggle {
+    display: block;
+  }
+
+  .navmenu {
+    position: fixed;
+    inset: 0;
+    background: rgba(255,255,255,0.97);
+    display: none;
+    z-index: 9999;
+  }
+
+  .navmenu.show {
+    display: flex;
+  }
+
+  .navmenu ul {
+    margin: auto;
+    flex-direction: column;
+    gap: 28px;
+    text-align: center;
+  }
+
+  .navmenu ul li a {
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  body.mobile-nav-active {
+    overflow: hidden;
+  }
+}
+.navmenu ul li a {
+  color: var(--clinic-dark);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .topbar .container {
+    padding-left: 16px;   /* kiri */
+    padding-right: 10px;  /* kanan */
+  }
+}
+.admin-card ul {
+  padding-left: 18px;
+  margin-bottom: 0;
+}
+
+.admin-card ul li {
+  margin-bottom: 10px;
+  line-height: 1.6;
+  color: var(--clinic-dark);
+}
+/*hamburger menu list icon*/
+.list-icon {
+  list-style: none;
+  padding-left: 0;
+}
+
+.list-icon li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 12px;
+  line-height: 1.6;
+  color: var(--clinic-dark);
+}
+
+.list-icon li i {
+  color: var(--clinic-primary);
+  font-size: 18px;
+  margin-top: 2px;
+}
+
+.admin-card h3 i {
+  color: var(--clinic-primary);
+}
+
+
+</style>
+
+<!--jss navbar-->
+<script>
+const header = document.querySelector('#header');
+const mobileToggle = document.querySelector('.mobile-nav-toggle');
+const navMenu = document.querySelector('#navmenu');
+
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+mobileToggle.addEventListener('click', () => {
+  navMenu.classList.toggle('show');
+
+  mobileToggle.classList.toggle('bi-list');
+});
+</script>
+
+
+
+
+<!--main content-->
+<main class="main">
+  <!--hero-->
+  <section class="admin-hero">
+    <div class="container">
+      <img src="../assets/img/health/LOGO KLINIK.png" class="logo" alt="Logo Klinik">
+      <h1>Administrasi & Biaya Pelayanan</h1>
+      <p>Informasi administrasi dan biaya layanan Klinik Semen Gresik PPS</p>
+    </div>
+  </section>
+
+  <!--content-->
+  <section class="section">
+    <div class="container">
+      <div class="row g-4">
+
+        <div class="col-lg-6">
+          <div class="admin-card reveal">
+            <img src="../assets/img/health/FOTO BAGIAN DEPAN KLINIK.jpeg" class="img-fluid">
+            <h3>Administrasi Pasien</h3>
+            <p>
+              Pendaftaran pasien dilakukan di bagian administrasi dengan membawa
+              identitas diri yang sah. Pasien akan mendapatkan nomor antrean
+              sesuai layanan yang dipilih.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="admin-card reveal">
+            <img src="../assets/img/health/POLI UMUM RS.webp" class="img-fluid">
+            <h3>Informasi Biaya</h3>
+            <p>
+              Biaya pelayanan disesuaikan dengan jenis poli dan tindakan medis.
+              Klinik Semen PPS berkomitmen memberikan layanan berkualitas dengan
+              biaya yang transparan.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+<!--persyaratan pendaftaran-->
+<section class="section">
+  <div class="container">
+
+    <div class="section-title text-center reveal">
+      <h2>Persyaratan Pendaftaran Administrasi</h2>
+      <p>Dokumen dan ketentuan yang perlu dipersiapkan pasien</p>
+    </div>
+
+    <div class="row g-4">
+
+      <!--pasien umum-->
+      <div class="col-lg-6">
+        <div class="admin-card reveal">
+          <h3>
+            <i class="bi bi-person-badge me-2"></i>
+            Pasien Umum
+          </h3>
+          <ul class="mt-3 list-icon">
+            <li>
+              <i class="bi bi-card-text"></i>
+              Menunjukkan KTP atau identitas diri yang masih berlaku
+            </li>
+            <li>
+              <i class="bi bi-pencil-square"></i>
+              Mengisi formulir pendaftaran pasien
+            </li>
+            <li>
+              <i class="bi bi-list-ol"></i>
+              Mengambil nomor antrean sesuai poli tujuan
+            </li>
+            <li>
+              <i class="bi bi-cash-stack"></i>
+              Melakukan pembayaran administrasi di awal
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!--pasien lama/kontrol-->
+      <div class="col-lg-6">
+        <div class="admin-card reveal">
+          <h3>
+            <i class="bi bi-person-check me-2"></i>
+            Pasien Lama / Kontrol
+          </h3>
+          <ul class="mt-3 list-icon">
+            <li>
+              <i class="bi bi-credit-card-2-front"></i>
+              Membawa kartu berobat Klinik Semen PPS
+            </li>
+            <li>
+              <i class="bi bi-hospital"></i>
+              Menyebutkan nama dan poli tujuan
+            </li>
+            <li>
+              <i class="bi bi-file-earmark-medical"></i>
+              Menyerahkan surat kontrol (jika ada)
+            </li>
+            <li>
+              <i class="bi bi-list-check"></i>
+              Mengambil nomor antrean ulang
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <!--content catatan-->
+    <div class="admin-card mt-4 reveal">
+      <h3>
+        <i class="bi bi-info-circle me-2"></i>
+        Catatan Penting
+      </h3>
+      <p class="mt-2">
+        Pendaftaran dilakukan langsung di bagian administrasi Klinik Semen PPS.
+        Pasien diharapkan datang lebih awal untuk menghindari antrean panjang,
+        terutama pada jam pelayanan ramai.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+  <!--biaya layanan-->
+<section class="section">
+  <div class="container">
+
+    <div class="section-title text-center reveal">
+      <h2>Daftar Biaya Pelayanan</h2>
+      <p>Estimasi biaya layanan kesehatan di Klinik Semen Gresik PPS</p>
+    </div>
+
+    <div class="table-responsive reveal">
+      <table class="table biaya-table">
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Jenis Layanan</th>
+            <th>Biaya</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Pemeriksaan Poli Umum</td>
+            <td>Rp 50.000</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Pemeriksaan Poli Anak</td>
+            <td>Rp 60.000</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Pemeriksaan Poli KIA</td>
+            <td>Rp 70.000</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Pemeriksaan Poli Gigi</td>
+            <td>Rp 75.000</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!--download button-->
+    <div class="text-center mt-4 reveal">
+      <a href="Daftar_Tarif_Klinik_Semen_PPS_Gresik.pdf" class="btn-download" download>
+        <i class="bi bi-download"></i> Download PDF Biaya
+      </a>
+    </div>
+
+  </div>
+</section>
+</main>
+
+<!--footer-->
+<footer class="footer text-center">
+  <div class="container">
+    <p> -Klinik Semen PPS- </p>
+  </div>
+</footer>
+
+<!--scroll vanilla js-->
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+
+  function smoothReveal() {
+    reveals.forEach(el => {
+      const windowHeight = window.innerHeight;
+      const elementTop = el.getBoundingClientRect().top;
+      const revealPoint = 120;
+
+      if (elementTop < windowHeight - revealPoint) {
+        el.classList.add('show');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', smoothReveal);
+  window.addEventListener('load', smoothReveal);
+  const backToTop = document.querySelector('#backToTop');
+
+// Scroll Effect
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 60) {
+    header.classList.add('scrolled');
+    backToTop.classList.add('active');
+  } else {
+    header.classList.remove('scrolled');
+    backToTop.classList.remove('active');
+  }
+});
+
+// Back to top click
+backToTop.addEventListener('click', (e) => {
+  e.preventDefault();
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
+</script>
+
+
+<script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/main.js"></script>
+
+
+</body>
+</html> 
